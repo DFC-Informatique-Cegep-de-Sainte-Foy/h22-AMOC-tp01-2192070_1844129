@@ -1,7 +1,10 @@
 #include <Arduino.h>
 #include "ActionDemandePieton.h"
+#include "FeuxPieton.h"
 
-ActionDemandePieton::ActionDemandePieton(FeuxAuto* p_feuxAuto) : m_feuxAuto(p_feuxAuto)
+ActionDemandePieton::ActionDemandePieton(FeuxAuto* p_feuxAuto,FeuxPieton* p_feuxPieton) 
+                                                                        : m_feuxAuto(p_feuxAuto),
+                                                                        m_feuxPieton(p_feuxPieton)
 {
 
 }
@@ -13,5 +16,5 @@ void ActionDemandePieton::maintenirCycle()
 
 void ActionDemandePieton::executer()
 {
-    this->m_feuxAuto.demanderPieton();
+    this->m_feuxAuto->demanderPieton();
 }

@@ -4,6 +4,6 @@ class Action
 {
 public:
     Action();
-    virtual void Executer() = 0;
-    virtual void maintenirClignotement() = 0;
+    virtual void executer() = 0;
+    virtual void maintenirCycle() = 0;
 };

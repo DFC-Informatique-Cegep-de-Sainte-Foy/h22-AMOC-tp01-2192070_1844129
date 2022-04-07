@@ -10,30 +10,34 @@ Bouton::Bouton(int p_pinBouton1,int p_pinBouton2,Action* p_actionBouton)
     pinMode(p_pinBouton1,INPUT);
     pinMode(p_pinBouton2,INPUT);
     this->m_derniereDateChangement = 0;
-    this->m_dernierEtatBouton = HIGH;
-    this->m_dernierEtatStableBouton = HIGH;
+    this->m_dernierEtatBouton1 = HIGH;
+    this->m_dernierEtatBouton2 = HIGH;
+    this->m_dernierEtatStableBouton1 = HIGH;
+    this->m_dernierEtatStableBouton2 = HIGH;
     this->m_delaiMinPression = 25;
 }
 
 void Bouton::tick()
 {
-    int etatBouton = digitalRead(m_pin1);
-    int etatBouton = digitalRead(m_pin2);
+    int etatBouton1 = digitalRead(m_pin1);
+    int etatBouton2 = digitalRead(m_pin2);
     long dateActuelle = millis();
     
-    if (etatBouton != m_dernierEtatBouton)
+    if (etatBouton1 != m_dernierEtatBouton1 || etatBouton2 != m_dernierEtatBouton2)
     {
         m_derniereDateChangement = dateActuelle;
-        m_dernierEtatBouton = etatBouton;
+        m_dernierEtatBouton1 = etatBouton1;
+        m_dernierEtatBouton2 = etatBouton2;
     }
 
     if (dateActuelle - m_derniereDateChangement > m_delaiMinPression)
     {
-        if (m_dernierEtatStableBouton == HIGH && etatBouton == LOW)
+        if ((m_dernierEtatStableBouton1 == HIGH && etatBouton1 == LOW) || (m_dernierEtatStableBouton2 == HIGH && etatBouton2 == LOW))
         {
-            this->m_actionBouton->Executer();
+            this->m_actionBouton->executer();
         }
-        m_dernierEtatStableBouton = etatBouton;
+        m_dernierEtatStableBouton1 = etatBouton1;
+        m_dernierEtatStableBouton2 = etatBouton2;
     }
 
     this->m_actionBouton->maintenirCycle();

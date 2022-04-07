@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include "DEL.h"
+#include "FeuxPieton.h"
 
 class FeuxAuto
 {
@@ -12,9 +13,10 @@ private:
     DEL* m_DELVert;
     int m_pietonDemande;
     int m_etatLumiereActuel;
+    long m_dernierChangement;
 public:
     
-    FeuxAuto(DEL* p_DELRouge, DEL* p_DELJaune, DEL* p_DELVert);
+    FeuxAuto(DEL* p_DELRouge, DEL* p_DELJaune, DEL* p_DELVert,FeuxPieton* p_feuxPieton);
     void tick();
     void demanderPieton();
 };
