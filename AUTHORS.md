@@ -2,7 +2,7 @@
 
 ## Auteurs du TP
 
-- Prénom Nom (Numéro matricule)
+- Alexandre Bernier (2192070)
 - Prénom Nom (Numéro matricule)
 
 ## Lien de la vidéo de présentation
