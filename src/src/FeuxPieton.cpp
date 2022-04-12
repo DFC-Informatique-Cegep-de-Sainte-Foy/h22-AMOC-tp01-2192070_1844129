@@ -21,8 +21,8 @@ void FeuxPieton::tick()
 {
     long dateActuelle = millis();
 
-    if (this->m_etatPieton == 1 && dateActuelle - m_derniereDateChangement > 10000)
-    {
+    if (this->m_etatPieton == 1)
+    {                                         
         this->m_delRouge->eteindre();
         this->m_delVert->allumer();
         this->m_derniereDateChangement = dateActuelle;
@@ -30,9 +30,9 @@ void FeuxPieton::tick()
     }
     
 
-    if (m_etatPieton == 0 && dateActuelle - m_derniereDateChangement > 20000)
-    {
-        m_derniereDateChangement = dateActuelle;
+    if (this->m_etatPieton == 0 && dateActuelle - this->m_derniereDateChangement > 2000)
+    {                                                                               //20000
+        this->m_derniereDateChangement = dateActuelle;
         this->m_delVert->eteindre();
         this->m_delRouge->allumer();
     }

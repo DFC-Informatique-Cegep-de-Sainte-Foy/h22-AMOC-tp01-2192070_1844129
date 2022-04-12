@@ -8,10 +8,10 @@ DEL::DEL(int p_pin) : m_pin(p_pin)
 
 void DEL::allumer()
 {
-    digitalWrite(m_pin,HIGH);
+    digitalWrite(this->m_pin,HIGH);
 }
 
 void DEL::eteindre()
 {
-    digitalWrite(m_pin,LOW);
+    digitalWrite(this->m_pin,LOW);
 }
