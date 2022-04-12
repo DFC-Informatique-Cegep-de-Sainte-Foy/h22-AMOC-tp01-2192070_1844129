@@ -16,8 +16,6 @@ private:
     int m_pietonDemande;
     int m_etatLumiereActuel;
     long m_dernierChangement;
-    int m_pietonStats;
-    int m_autoStats;
 public:
     
     FeuxAuto(DEL* p_DELRouge, DEL* p_DELJaune, DEL* p_DELVert,FeuxPieton* p_feuxPieton,ActionEEPROM* p_action);

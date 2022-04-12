@@ -5,7 +5,9 @@
 class Program
 {
 private:
-    Bouton* m_bouton;
+    Bouton* m_bouton1;
+    Bouton* m_bouton2;
+    Bouton* m_bouton3;
     FeuxPieton* m_feuxPieton;
 public:
     Program();

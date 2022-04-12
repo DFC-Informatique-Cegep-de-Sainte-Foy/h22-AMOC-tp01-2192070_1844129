@@ -5,15 +5,20 @@
 ActionEEPROM::ActionEEPROM() 
 {
     Serial.begin(9600);
-    this->lireStatistiques();
-    this->afficherStatistiques();
     this->m_emplacementPieton = 22;
     this->m_emplacementAuto = 12;
+    this->lireStatistiques();
+    this->afficherStatistiques();
 }
 
 void ActionEEPROM::executer()
 {
     this->afficherStatistiques();
+}
+
+void ActionEEPROM::effacer()
+{
+    this->effacerStatistiques();
 }
 
 void ActionEEPROM::effacerStatistiques()
@@ -27,20 +32,32 @@ void ActionEEPROM::effacerStatistiques()
     byte byte1Auto = (0 >> 8) & 0xFF;
     byte byte2Auto = 0 & 0XFF;
 
-    EEPROM.update(12,byte1Pieton);
-    EEPROM.update(12 + 1,byte2Pieton);
+    EEPROM.update(12,byte1Auto);
+    EEPROM.update(12 + 1,byte2Auto);
+
+    this->lireStatistiques();
 }
 
 void ActionEEPROM::afficherStatistiques()
 {
-    Serial.print(100 * this->m_pietonStats / this->m_autoStats);
-    Serial.println("%");
-
+    if (m_autoStats <= 0)
+    {
+        Serial.print("0");
+        Serial.println("%");
+    }
+    else 
+    {
+        Serial.print(100 * this->m_pietonStats / this->m_autoStats);
+        Serial.println("%");
+    }
+    
     Serial.print(this->m_autoStats);
-    Serial.println("Cycle voiture");
+    Serial.println(" Cycle voiture");
 
     Serial.print(this->m_pietonStats);
-    Serial.println("Cycle pieton");
+    Serial.println(" Cycle pieton");
+
+    Serial.println();
 }
 
 void ActionEEPROM::lireStatistiques()

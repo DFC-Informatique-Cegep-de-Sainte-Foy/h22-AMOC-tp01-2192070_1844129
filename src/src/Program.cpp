@@ -14,6 +14,7 @@ int const pinRougePieton = 10;
 
 int const pinBouton1 = 2;
 int const pinBouton2 = 4;
+int const pinBouton3 = 7;
 
 Program::Program()
 {
@@ -32,11 +33,15 @@ Program::Program()
 
     ActionDemandePieton* actPieton = new ActionDemandePieton(feuxAuto,this->m_feuxPieton);
 
-    this->m_bouton = new Bouton(pinBouton1,pinBouton2,actPieton);
+    this->m_bouton1 = new Bouton(pinBouton1,actPieton);
+    this->m_bouton2 = new Bouton(pinBouton2,actPieton);
+    this->m_bouton3 = new Bouton(pinBouton3,actionEEPROM);
 }
 
 void Program::loop()
 {
-   this->m_bouton->tick();
+   this->m_bouton1->tick();
+   this->m_bouton2->tick();
+   this->m_bouton3->tick();
    this->m_feuxPieton->tick();
 }

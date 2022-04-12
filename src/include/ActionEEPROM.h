@@ -17,4 +17,5 @@ public:
     void ecrireStatistiqueAuto();
     void ecrireStatistiquePieton();
     virtual void maintenirCycle();
+    virtual void effacer();
 };

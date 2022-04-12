@@ -18,3 +18,8 @@ void ActionDemandePieton::executer()
 {
     this->m_feuxAuto->demanderPieton();
 }
+
+void ActionDemandePieton::effacer()
+{
+    ;
+}
