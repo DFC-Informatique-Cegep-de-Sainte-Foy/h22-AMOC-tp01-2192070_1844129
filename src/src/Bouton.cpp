@@ -34,6 +34,7 @@ void Bouton::tick()
             this->m_actionBouton->executer();
         }
         this->m_dernierEtatStableBouton = etatBouton;
+        
         if (this->m_dernierEtatStableBouton == LOW && etatBouton == LOW)
         {
             if (dateActuelle - this->m_tempsAppuye > 5000)

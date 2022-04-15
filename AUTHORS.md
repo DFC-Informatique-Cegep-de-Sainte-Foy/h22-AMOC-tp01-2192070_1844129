@@ -3,9 +3,9 @@
 ## Auteurs du TP
 
 - Alexandre Bernier (2192070)
-- Prénom Nom (Numéro matricule)
+- Alex Rivard (1844129)
 
 ## Lien de la vidéo de présentation
 
-- Lien YouTube #1 :
+- Lien YouTube #1 : https://www.youtube.com/watch?v=NEODSOTPYY8
 - Lien YouTube #2 (si applicable) :
