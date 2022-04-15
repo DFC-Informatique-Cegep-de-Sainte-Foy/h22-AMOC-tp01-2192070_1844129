@@ -26,14 +26,14 @@ void ActionEEPROM::effacerStatistiques()
     byte byte1Pieton = (0 >> 8) & 0xFF;
     byte byte2Pieton = 0 & 0XFF;
 
-    EEPROM.update(22,byte1Pieton);
-    EEPROM.update(22 + 1,byte2Pieton);
+    EEPROM.update(this->m_emplacementPieton,byte1Pieton);
+    EEPROM.update(this->m_emplacementPieton + 1,byte2Pieton);
 
     byte byte1Auto = (0 >> 8) & 0xFF;
     byte byte2Auto = 0 & 0XFF;
 
-    EEPROM.update(12,byte1Auto);
-    EEPROM.update(12 + 1,byte2Auto);
+    EEPROM.update(this->m_emplacementAuto,byte1Auto);
+    EEPROM.update(this->m_emplacementAuto + 1,byte2Auto);
 
     this->lireStatistiques();
 }
@@ -76,7 +76,7 @@ void ActionEEPROM::lireStatistiques()
 void ActionEEPROM::ecrireStatistiqueAuto()
 {
     this->m_autoStats++;
-    byte byte1Auto = (this->m_autoStats >> 8) & 0xFF;
+    byte byte1Auto = (this->m_autoStats >>8 ) & 0xFF;
     byte byte2Auto = this->m_autoStats & 0XFF;
 
     EEPROM.update(this->m_emplacementAuto,byte1Auto);

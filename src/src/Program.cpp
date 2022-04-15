@@ -5,16 +5,16 @@
 #include "ActionDemandePieton.h"
 #include "ActionEEPROM.h"
 
-int const pinVertAuto = 3;
-int const pinJauneAuto = 5;
-int const pinRougeAuto = 6;
+int const pinVertAuto = 11;
+int const pinJauneAuto = 10;
+int const pinRougeAuto = 9;
 
-int const pinVertPieton = 11;
-int const pinRougePieton = 10;
+int const pinVertPieton = 6;
+int const pinRougePieton = 5;
 
 int const pinBouton1 = 2;
-int const pinBouton2 = 4;
-int const pinBouton3 = 7;
+int const pinBouton2 = 3;
+int const pinBouton3 = 13;
 
 Program::Program()
 {

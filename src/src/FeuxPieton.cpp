@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include "FeuxPieton.h"
 
+const int tempsDureeVerte = 20000;
+
 FeuxPieton::FeuxPieton(DEL* p_delRouge,DEL* p_delVert) : m_delRouge(p_delRouge),
                                                          m_delVert(p_delVert)
 {
@@ -30,8 +32,8 @@ void FeuxPieton::tick()
     }
     
 
-    if (this->m_etatPieton == 0 && dateActuelle - this->m_derniereDateChangement > 2000)
-    {                                                                               //20000
+    if (this->m_etatPieton == 0 && dateActuelle - this->m_derniereDateChangement > tempsDureeVerte)
+    {                                                                     
         this->m_derniereDateChangement = dateActuelle;
         this->m_delVert->eteindre();
         this->m_delRouge->allumer();
